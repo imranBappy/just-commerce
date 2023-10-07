@@ -1,0 +1,40 @@
+.content {
+  text-align: center;
+  padding: 60px 5px;
+}
+
+.heading {
+  font-size: 20px;
+  line-height: 2;
+}
+
+.subheading {
+  line-height: 2;
+  letter-spacing: 0.2px;
+  margin: 0px;
+}
+
+.custom_input {
+  border: 1px solid var(--deep_gray) !important;
+  display: inline-block;
+  max-width: 370px;
+  width: 80%;
+  margin: 15px;
+  padding: 10px;
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--primary);
+  color: var(--primary_contrast) !important;
+  border: none;
+  padding: 12px 22px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: var(--primary_light);
+  color: var(--primary_light_contrast) !important;
+}

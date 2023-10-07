@@ -1,0 +1,12 @@
+.list {
+  display: block;
+  list-style: none;
+  padding: 0px;
+}
+
+.endMessage {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 22px;
+}

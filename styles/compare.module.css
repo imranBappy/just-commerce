@@ -1,0 +1,133 @@
+.heading {
+  padding: 50px 0 20px;
+  text-align: center;
+}
+
+.root {
+  width: 90%;
+  position: relative;
+  margin: 70px auto 100px;
+}
+
+.table {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table ul,
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.table ul {
+  width: 100%;
+}
+
+.table li,
+.header li {
+  min-width: 300px;
+  width: 100%;
+  height: 67px;
+  padding: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-color: var(--border_color);
+  border-style: solid;
+  border-width: 1px;
+  border-left: none;
+  border-bottom: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.table li:last-child,
+.header li:last-child {
+  border-bottom: 1px solid var(--border_color);
+}
+
+.header {
+  position: absolute;
+  background-color: #ffffff2e;
+  backdrop-filter: blur(10px);
+  top: 0;
+  left: 0;
+}
+
+.header li {
+  border-left: 1px solid var(--border_color);
+  font-weight: 600;
+  font-size: 16px;
+  width: 200px;
+  min-width: 150px;
+}
+
+.content {
+  display: flex;
+  margin-left: 200px;
+  width: 100%;
+}
+
+.image {
+  height: 160px !important;
+}
+
+.desc {
+  height: 125px !important;
+}
+
+.color {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  width: max-content;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: var(--primary);
+  color: var(--primary_contrast);
+  transition: 0.3s all;
+  margin-right: 5px;
+}
+
+.button:hover {
+  background-color: var(--primary_light);
+  color: var(--primary_light_contrast);
+}
+
+.price del {
+  margin-right: 5px;
+  color: var(--light_black);
+}
+
+.price {
+  color: var(--secondary);
+}
+
+
+@media (max-width: 550px) {
+  .header li {
+    font-size: 15px;
+    width: 100px;
+    min-width: 100px;
+  }
+  .content {
+    margin-left: 100px;
+  }
+}

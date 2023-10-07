@@ -1,0 +1,85 @@
+.card_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-bottom: 25px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5em;
+  box-shadow: 0 1px 2.5em rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  width: 140px;
+  height: 120px;
+  transition: 0.4s ease-out all;
+  border: 1px solid transparent;
+  cursor: default;
+  position: relative;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  z-index: 1;
+  border-color: #f1f1f1;
+  transform: translateY(-7px);
+  box-shadow: 0 3px 2.5em rgba(0, 0, 0, 0.15);
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 125px;
+  height: 105px;
+  border-radius: 3px;
+}
+
+.circle_inner {
+  background-color: #fff;
+  width: 121px;
+  height: 101px;
+  border-radius: 2px;
+  overflow: hidden;
+  padding: 10px;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.val {
+  font-weight: 500;
+  font-size: 32px;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #777e86;
+}
+
+.color {
+  width: 20px;
+  height: 5px;
+  border-radius: 1em;
+}
+
+.circle,
+.color {
+  background: rgb(80, 200, 120);
+  background: linear-gradient(
+    90deg,
+    rgba(80, 200, 120, 1) 0%,
+    rgba(115, 211, 147, 1) 50%,
+    rgba(0, 182, 219, 1) 100%
+  );
+}

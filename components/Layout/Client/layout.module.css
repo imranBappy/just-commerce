@@ -1,0 +1,9 @@
+.main {
+  margin-top: 60px;
+}
+
+@media (max-width: 991px) {
+  .main {
+    margin-top: 76px;
+  }
+}

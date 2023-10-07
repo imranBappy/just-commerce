@@ -1,0 +1,42 @@
+.card {
+  background: #fff;
+  padding: 10px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+.card * {
+  transition: 0.3s all;
+}
+
+.name {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 700;
+  opacity: 0;
+  color: var(--primary);
+  font-size: 20px;
+}
+
+.card:hover {
+  box-shadow: 0px 20px 35px #00000029;
+  z-index: 2;
+}
+
+.card:hover img {
+  filter: blur(7px);
+  opacity: 0.4;
+}
+
+.card:hover .name {
+  opacity: 1;
+}

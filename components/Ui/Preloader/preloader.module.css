@@ -1,0 +1,14 @@
+.display {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  display: flex;
+  z-index: 999999;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}

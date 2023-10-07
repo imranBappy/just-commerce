@@ -1,0 +1,52 @@
+.menu {
+  width: 100%;
+  margin: auto;
+  box-shadow: 0 1px 2px 0 #0000001c;
+}
+
+.user_info {
+  text-align: center;
+  padding: 25px 8px;
+  background-color: var(--primary);
+  color: var(--primary_contrast);
+  overflow: hidden;
+}
+
+.menu_list {
+  text-align: center;
+  padding: 10px 0px;
+}
+
+.menu_item {
+  font-size: 16px;
+}
+
+.menu_item button {
+  border: none;
+  background-color: #fff;
+  padding: 6px;
+  display: block;
+  width: 100%;
+  transition: background-color 0.4s;
+}
+
+.menu_item button:hover,
+.menu_item button.active {
+  background-color: var(--primary);
+  color: var(--primary_contrast);
+}
+
+.viewer {
+  min-height: 85vh;
+  height: 100%;
+  padding: 10px;
+  position: relative;
+}
+
+@media (max-width: 550px) {
+  .viewer {
+    min-height: 85vh;
+    height: 100%;
+    padding: 25px 0px;
+  }
+}

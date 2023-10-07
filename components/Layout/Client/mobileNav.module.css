@@ -1,0 +1,70 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 999;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  background-color: #ab472598;
+  box-shadow: 0px 10px 15px #0000000d;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s;
+  padding: 10px;
+  max-height: 76px;
+  overflow: hidden;
+  padding-left: 5px;
+}
+
+.start {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar_button {
+  border: none;
+  background: none;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.brand a {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  width: 155px;
+}
+
+.brand img {
+  max-width: 155px;
+}
+
+.end {
+  margin-right: 13px;
+  cursor: pointer;
+}
+
+.searchbar {
+  z-index: 1000;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff98;
+  box-shadow: 0px 10px 15px #0000000d;
+  backdrop-filter: blur(10px);
+  padding: 0 15px;
+}
+
+.searchbar > svg {
+  margin-left: 10px;
+  color: var(--primary);
+  cursor: pointer;
+}

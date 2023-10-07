@@ -1,0 +1,31 @@
+.content_body {
+  display: flex;
+  flex: 1 1 0%;
+  padding-top: 60px;
+  min-height: 100vh;
+}
+
+.content {
+  padding-inline-start: 16rem;
+  width: 100%;
+  background-color: var(--blue_white);
+}
+
+.content_inner_body {
+  margin: 25px;
+  min-height: 92%;
+  height: -webkit-fill-available;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding-inline-start: 0rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .content_inner_body {
+    margin: 25px 5px;
+  }
+}

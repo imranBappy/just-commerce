@@ -1,0 +1,106 @@
+.menu {
+  z-index: 6;
+  width: 16rem;
+  height: 100vh;
+  display: block;
+  position: fixed;
+  background: var(--white);
+  box-shadow: 7px -6px 4px -9px var(--deep_black);
+  transition: left 0.4s ease-in-out;
+}
+
+.show {
+  left: 0 !important;
+}
+
+.hide {
+  left: -400px !important;
+}
+
+.list_auto {
+  overflow-y: auto;
+  height: 76vh;
+  overflow-x: hidden;
+  list-style: none;
+  padding: 0px;
+}
+
+.sidebar_inner {
+  padding: 25px 0px;
+  overflow: auto;
+}
+
+.menu_list {
+  margin: 5px 0px;
+}
+
+.menu_list button {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 9px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #393939;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.menu_list button::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' strokeWidth='1.5' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform 0.4s ease;
+  transform-origin: 0.5em 50%;
+  position: absolute;
+  left: 195px;
+  top: 15px;
+}
+
+.menu_list button.button_active::before {
+  transform: rotate(90deg);
+}
+
+.menu_list svg {
+  margin-right: 8px;
+}
+
+.expand,
+.collapse {
+  display: block;
+  transition: opacity 0.4s, height 0.4s, transform 0.4s;
+  will-change: transform, opacity, height;
+  overflow: hidden;
+}
+
+.expand {
+  opacity: 1;
+  height: max-content;
+  transform: translateZ(0);
+}
+
+.collapse {
+  opacity: 0;
+  height: 0;
+  transform: translate3d(20px, 0, 0);
+}
+
+.collapse_item {
+  background: var(--blue_white);
+  list-style: none;
+  padding: 5px 0;
+}
+
+.collapse_item li {
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    left: -400px;
+  }
+}

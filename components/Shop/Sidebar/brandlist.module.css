@@ -1,0 +1,39 @@
+.brand_item {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.brand_item * {
+  transition: 0.4s all;
+}
+
+.brand_item:hover {
+  color: var(--primary);
+}
+
+.brand_item::before {
+  position: absolute;
+  top: 0.25rem;
+  left: 0;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  pointer-events: none;
+  content: "";
+  background-color: #fff;
+  border: #c1cdd7 solid 1px;
+  box-shadow: 0 0 0 0 transparent;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  border-radius: 0.3125rem;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc4JyBoZWlnaHQ9JzgnIHZpZXdCb3g9JzAgMCA4IDgnPjxwYXRoIGZpbGw9JyNmZmYnIGQ9J002LjU2NC43NWwtMy41OSAzLjYxMi0xLjUzOC0xLjU1TDAgNC4yNmwyLjk3NCAyLjk5TDggMi4xOTN6Jy8+PC9zdmc+);
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.brand_item_selected::before {
+  background-color: var(--secondary);
+}

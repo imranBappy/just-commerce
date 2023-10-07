@@ -1,0 +1,28 @@
+.button {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  font-size: 23px;
+  background: var(--primary);
+  color: var(--primary_contrast);
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 5px 10px #0000004a;
+  transition: box-shadow 0.4s;
+  z-index: 1;
+}
+
+.button:hover {
+  box-shadow: 0 5px 10px #0000007d;
+}
+
+@media (max-width: 991px) {
+  .button {
+    bottom: 75px;
+  }
+}

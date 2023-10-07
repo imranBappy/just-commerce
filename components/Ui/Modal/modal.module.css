@@ -1,0 +1,75 @@
+.overlay {
+  background-color: #00000080;
+  z-index: 1035;
+  position: fixed;
+  inset: 0px;
+}
+
+.content {
+  position: absolute;
+  z-index: 99999;
+  inset: 40px 0px;
+  width: 80%;
+  max-width: 1080px;
+  max-height: 575px;
+  margin: auto;
+  background-color: var(--white);
+  overflow: hidden;
+  border-radius: 8px;
+  outline: none;
+  display: flex;
+}
+
+.content_small {
+  position: absolute;
+  z-index: 99999;
+  inset: 0px;
+  width: 356px;
+  height: max-content;
+  margin: auto;
+  background-color: var(--white);
+  overflow: hidden;
+  border-radius: 8px;
+  outline: none;
+  display: flex;
+}
+
+.body {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 20px;
+  position: relative;
+}
+
+.close_button {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--deep_gray);
+  color: var(--black);
+  border: 0px;
+  outline: 0px;
+  box-shadow: none;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+}
+
+@media (max-width: 550px) {
+  .content {
+    inset: 0px;
+    width: 100%;
+    border-radius: 0px;
+    max-height: 100%;
+  }
+
+  .content_small {
+    inset: 90px 10px;
+    width: 92%;
+  }
+}

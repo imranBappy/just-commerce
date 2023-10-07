@@ -1,0 +1,113 @@
+.spin {
+  animation: spin 1s linear infinite;
+  height: 43px;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.wrap {
+  width: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  display: block;
+  cursor: pointer;
+  position: relative;
+}
+
+.circle {
+  background-color: var(--danger);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: absolute;
+  top: -2px;
+  right: -3px;
+}
+
+.container {
+  position: absolute;
+  width: 300px;
+  height: 50vh;
+  max-height: 300px;
+  top: 62px;
+  right: calc(0% - 207px);
+  background-color: #fff;
+  box-shadow: 0 3px 2.5em rgb(0 0 0 / 15%);
+  padding: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.close {
+  background-color: var(--danger);
+  color: #fff;
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.msg {
+  position: absolute;
+  top: 50%;
+  left: 29%;
+  font-weight: bold;
+}
+
+.container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 90%;
+  overflow-x: auto;
+}
+
+.container li {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 5px;
+}
+
+.container p {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 5px;
+}
+
+.container a {
+  color: #1c1cff;
+}
+
+.container span {
+  font-size: 12px;
+  color: #646464;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.container button {
+  border: none;
+  background: #f1f1f1;
+  border-top: 1px solid #ddd;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.container button:hover {
+  color: var(--danger);
+}

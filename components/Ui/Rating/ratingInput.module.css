@@ -1,0 +1,15 @@
+.star_rating button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0px;
+  margin-right: 6px;
+  font-size: 20px;
+  line-height: 20px;
+}
+.on {
+  color: #ffa707;
+}
+.off {
+  color: #ccc;
+}

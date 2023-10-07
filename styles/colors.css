@@ -1,0 +1,16 @@
+:root {
+  --primary: #50c878;
+  --primary_light: #73d393;
+  --primary_opacity: #50c87857;
+  --black: #013a20;
+  --deep_black: #000000;
+  --light_black: #005f34;
+  --grey: #d8eed6;
+  --light_gray: #e7f1de;
+  --deep_gray: #aebdb0;
+  --white: #ffffff;
+  --blue_white: #edffe8;
+  --danger: #cf4436;
+  --secondary: #f54d3d;
+  --success: #4caf50;
+}

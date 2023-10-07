@@ -1,0 +1,12 @@
+.container {
+  display: block;
+  max-width: 300px;
+  margin: auto;
+  padding-top: 44px;
+  min-height: 95vh;
+  text-align: center;
+}
+
+.h2 {
+  margin: 10px 0px 25px;
+}

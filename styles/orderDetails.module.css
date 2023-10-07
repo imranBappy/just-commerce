@@ -1,0 +1,40 @@
+.order_details {
+  margin: 10px 0px 30px;
+}
+
+.order_details div {
+  margin: 10px 0px;
+  padding: 0px;
+}
+
+.order_details h6 {
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+.order_details p {
+  margin: 0px;
+  color: var(--black);
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 500;
+}
+
+.order_details span {
+  font-weight: 400;
+}
+
+.payment_info {
+  margin: 25px 0px;
+}
+
+.payment_info div {
+  display: -moz-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px dashed #ddd;
+  font-weight: 500;
+  margin-bottom: 14px;
+}

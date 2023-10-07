@@ -1,0 +1,269 @@
+.top {
+  padding-top: 60px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: var(--light_black);
+  font-weight: 500;
+}
+
+.nav .active {
+  color: var(--secondary);
+}
+
+.nav div {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav div[aria-disabled="true"] {
+  pointer-events: none;
+}
+
+.nav svg {
+  margin-bottom: 5px;
+}
+
+.card {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 30px auto 65px;
+  background-color: var(--blue_white);
+  box-shadow: 0 1px 20px 0px rgb(0 0 0 / 10%);
+  overflow: hidden;
+}
+
+.updateButton {
+  width: max-content !important;
+  padding: 0 15px;
+  float: right;
+  margin-bottom: 18px;
+}
+
+.card button {
+  width: 100%;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary);
+  color: var(--primary_contrast);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background-color: var(--primary_light);
+  color: var(--primary_light_contrast);
+}
+
+.card button:disabled,
+.card button[disabled] {
+  background-color: var(--grey);
+  color: var(--black);
+  cursor: not-allowed;
+}
+
+.checkout_form {
+  width: 100%;
+}
+
+.input {
+  padding: 10px 0px;
+}
+
+.input label {
+  margin-bottom: 10px;
+}
+
+.input input {
+  width: 100%;
+  padding: 3px 10px;
+  display: block;
+}
+
+.input textarea {
+  width: 100%;
+}
+
+.info {
+  overflow: hidden;
+  padding: 5px 0px;
+}
+
+.info span {
+  display: block;
+}
+
+.cart_item_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.cart_item {
+  display: -moz-box;
+  display: flex;
+  width: 275px;
+  background-color: var(--white);
+  border: 1px solid var(--grey);
+  border-radius: 8px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.cart_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cart_image {
+  width: 55px;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.cart_disc {
+  padding: 5px;
+  height: 100%;
+}
+
+.cart_disc > * {
+  display: block;
+}
+
+.cart_disc b {
+  max-height: 45px;
+  overflow: hidden;
+}
+
+.price_description > * {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.terms a {
+  color: var(--secondary);
+}
+
+.payment_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.payment_card_label {
+  position: relative;
+  cursor: pointer;
+}
+
+.payment_card_label input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.payment_card {
+  width: 250px;
+  background-color: var(--grey);
+  border: 1px solid var(--grey);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 10px;
+}
+
+.payment_card:hover {
+  background-color: var(--white);
+  border: 1px solid var(--deep_gray);
+}
+
+.payment_card > * {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.payment_card_label > input:checked ~ .payment_card {
+  background-color: var(--white);
+  border: 1px solid var(--secondary);
+}
+
+.confirmation {
+  background-color: var(--white);
+  box-shadow: 0 0 0 0.15rem #0000001a;
+  padding: 12px;
+  text-align: center;
+}
+
+.confirmation_heading {
+  padding: 38px 5px 10px;
+  border-bottom: 1px solid var(--grey);
+}
+
+.confirmation_heading svg {
+  margin: 10px;
+  color: var(--success);
+}
+
+.confirmation_heading h2 {
+  margin: 10px 5px 20px;
+  font-size: 26px;
+}
+
+.confirmation_heading p {
+  font-style: italic;
+}
+
+.confirmation_body {
+  text-align: left;
+  padding: 20px;
+}
+
+.confirmation_body h5 {
+  margin: 18px 0px;
+}
+
+.confirmation_body p {
+  margin: 0px;
+  color: var(--black);
+}
+
+.confirmation_pay {
+  margin: 25px 0px;
+}
+
+.confirmation_pay div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px dashed #ddd;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 425px) {
+  .top {
+    padding-top: 35px;
+  }
+  .card {
+    margin: 20px auto 65px;
+  }
+  .nav span {
+    display: none;
+  }
+}

@@ -1,0 +1,96 @@
+.category {
+  padding: 10px;
+}
+
+.category h5 {
+  margin-bottom: 2px;
+  font-size: 1.12rem;
+}
+
+.category a:hover {
+  color: var(--primary_light);
+  text-decoration: underline;
+}
+
+.img_con {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.img_con > img {
+  border: 1px solid var(--border_color);
+  padding: 8px;
+  margin: 6px 12px 6px 2px;
+  width: 50px;
+}
+
+.heading {
+  font-size: 27px;
+  text-align: center;
+  padding: 55px 0 0;
+}
+
+.card {
+  box-shadow: 0 0 13px -10px black;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid var(--border_color);
+}
+
+.spc {
+  padding: 65px 0px;
+}
+
+.sub {
+  padding: 10px;
+  max-height: 100%;
+  overflow: initial;
+  transition: all 0.5s ease;
+}
+
+.sub h6 {
+  color: #111;
+  font-weight: 400;
+  margin-bottom: 11px;
+}
+
+.sub > div:last-child > h6 {
+  margin-bottom: 0;
+}
+
+.sub[aria-expanded] {
+  max-height: 125px;
+  overflow: hidden;
+}
+
+.btn {
+  cursor: pointer;
+  color: var(--primary);
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.btn.btn[aria-expanded]::after {
+  content: "More +" !important;
+}
+
+.btn.btn::after {
+  content: "Less -";
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 0px;
+  }
+  .category h6 {
+    font-size: 0.9rem;
+  }
+  .spc {
+    padding: 40px 0px;
+  }
+  .sub[aria-expanded] {
+    max-height: 115px;
+  }
+}

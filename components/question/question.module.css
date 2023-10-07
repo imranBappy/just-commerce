@@ -1,0 +1,31 @@
+.wrap {
+  padding: 20px 0 20px 30px;
+  border-bottom: 1px solid #ecedef;
+}
+
+.wrap p:first-child {
+  font-size: 13px;
+  margin: 0 0 10px;
+  color: #666666;
+}
+
+.wrap p:first-child strong {
+  color: var(--primary);
+}
+
+.wrap h3,
+.answer {
+  position: relative;
+  margin-bottom: 5px;
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.wrap h3 span,
+.answer span {
+  position: absolute;
+  left: -30px;
+  font-weight: bold;
+  color: #111;
+  font-size: 14px;
+}

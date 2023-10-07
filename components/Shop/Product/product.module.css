@@ -1,0 +1,240 @@
+@keyframes fade_in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.item {
+  padding: 15px;
+  animation: fade_in 0.8s;
+  max-width: 266px;
+  direction: ltr;
+}
+
+.item * {
+  transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+  transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+}
+
+.card {
+  border-radius: 5px;
+  background-color: var(--white);
+  position: relative;
+  overflow: hidden;
+  padding: 0 15px;
+}
+
+.border {
+  border: 1px solid var(--border_color);
+}
+
+.card:hover {
+  box-shadow: 0px 0px 13px -10px var(--deep_black);
+}
+
+.card:hover .container img,
+.card:active .container img {
+  transform: scale(1.1);
+}
+
+.container {
+  overflow: hidden;
+  background-color: var(--white);
+  height: 206px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.container img {
+  transition-duration: 1200ms;
+}
+
+.hover_buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  opacity: 0;
+  transition-duration: 650ms;
+  z-index: 1;
+  transform: rotateY(90deg);
+}
+
+.hover_buttons button {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  color: var(--primary);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 3px 8px rgba(0, 0, 0, 0.12);
+  margin-bottom: 5px;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 500ms;
+}
+
+.hover_buttons button:hover {
+  color: var(--primary_contrast);
+  background-color: var(--primary);
+}
+
+.card:hover .hover_buttons {
+  opacity: 1;
+  transform: rotateY(0deg);
+}
+
+.discount {
+  position: absolute;
+  background-color: var(--secondary);
+  color: var(--secondary_contrast);
+  padding: 1px 5px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+  border-radius: 15px;
+  top: 15px;
+  left: 15px;
+}
+
+.nameContainer {
+  padding: 15px 0 8px;
+}
+
+.name {
+  margin: 5px 0 8px;
+  font-weight: 500;
+  overflow: hidden;
+  height: 42px;
+}
+
+.name a {
+  letter-spacing: 0.6px;
+  text-transform: capitalize;
+  color: #233040;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.name a:hover {
+  color: var(--primary);
+}
+
+.unit {
+  color: var(--light_black);
+  margin-bottom: 8px;
+}
+
+.price_con {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  margin-bottom: 5px;
+}
+
+.price {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 0px;
+  color: #233040;
+  margin-right: 5px;
+  line-height: 1;
+}
+
+.price_ori {
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 0;
+  color: var(--light_black);
+  text-decoration: line-through;
+  margin-right: 5px;
+  line-height: 1;
+}
+
+.buttonContainer {
+  position: absolute;
+  bottom: 13px;
+  right: 15px;
+  width: max-content;
+}
+
+.button,
+.buttonContainer button {
+  height: 28px;
+  padding: 0 5px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: 500;
+  display: block;
+  line-height: 28px;
+  text-align: center;
+}
+
+.button {
+  background-color: var(--primary);
+  color: var(--primary_contrast);
+  border: 1px solid var(--primary);
+}
+
+.buttonContainer button {
+  background-color: #fff;
+  border: 1px solid var(--primary);
+  color: var(--black);
+}
+
+.buttonContainer button:disabled {
+  cursor: not-allowed;
+}
+
+.button:hover,
+.buttonContainer button:hover {
+  background-color: var(--primary_light);
+  color: var(--primary_light_contrast);
+  border: 1px solid var(--primary_light);
+}
+
+@media (max-width: 575px) {
+  .item {
+    padding: 10px;
+  }
+  .container {
+    height: auto;
+    min-height: 170px;
+  }
+  .nameContainer {
+    padding: 10px 0 20px;
+  }
+  .buttonContainer {
+    position: relative;
+    bottom: 13px;
+    right: 0;
+    width: 100%;
+  }
+  .buttonContainer .button {
+    width: 100%;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+  .price_ori {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 374px) {
+  .price_ori {
+    display: none;
+  }
+  .container {
+    height: auto;
+    min-height: 120px;
+  }
+}

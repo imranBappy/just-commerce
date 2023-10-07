@@ -1,0 +1,9 @@
+{
+	"rewrites": [{ "source": "/(.*)", "destination": "/" }],
+	"functions": {
+	
+		"myFunction": {
+			"maxDuration": 50	
+		}
+	}
+}

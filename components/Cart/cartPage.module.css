@@ -1,0 +1,231 @@
+.container {
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.header {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.header p {
+  flex: 1;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  color: var(--black);
+  border-bottom: 1px solid var(--deep_gray);
+  margin-bottom: 0px;
+}
+
+.body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  padding: 1rem 0rem;
+  border-bottom: 1px solid var(--deep_gray);
+}
+
+.body > * {
+  flex: 1;
+  color: var(--black);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0rem 0.5rem;
+}
+
+.body span {
+  display: block;
+  font-weight: 400;
+}
+
+.buttons > * {
+  background-color: var(--primary);
+  font-weight: 500;
+  color: var(--primary_contrast);
+  border: none;
+  margin: 0.5rem;
+  font-size: 22px;
+  border-radius: 5px;
+  line-height: 34px;
+  width: 34px;
+  height: 34px;
+}
+
+.buttons > *:hover {
+  background-color: var(--primary_light);
+  color: var(--primary_light_contrast);
+}
+
+.price {
+  margin-top: 3rem;
+}
+
+.card_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 35px 0px;
+}
+
+.card {
+  border: 1px solid var(--deep_gray);
+  padding: 18px 0px;
+  margin: 10px 0px;
+  min-width: 20em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.card p {
+  color: var(--black);
+  margin: 0px;
+}
+
+.checkout_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.coupon {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 75%;
+}
+
+.coupon input {
+  display: inline-block;
+  width: 100%;
+  height: 38px;
+  padding: 5px;
+  border-radius: 0;
+  border: 1px solid var(--deep_gray);
+}
+
+.coupon input:focus-within {
+  outline: none;
+  border: 1px solid var(--black);
+}
+
+.coupon button {
+  display: inline-block;
+  background-color: var(--primary);
+  color: var(--primary_contrast);
+  font-weight: 500;
+  border: none;
+  font-size: 15px;
+  width: 270px;
+  height: 38px;
+}
+
+.coupon button:hover {
+  background-color: var(--primary_light);
+  color: var(--primary_light_contrast);
+}
+
+.checkout {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  width: 25%;
+}
+
+.checkout button, .checkout a, .empty a {
+  background-color: var(--primary);
+  font-weight: 500;
+  color: var(--primary_contrast);
+  border: none;
+  margin-bottom: 22px;
+  font-size: 18px;
+  line-height: 38px;
+  width: 100%;
+  max-width: 300px;
+  height: 38px;
+  display: block;
+}
+
+.checkout button:hover, .checkout a:hover, .empty a:hover {
+  background-color: var(--primary_light);
+  color: var(--primary_light_contrast);
+}
+
+.empty {
+  text-align: center;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.empty > * {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    display: none;
+  }
+  .body {
+    display: block;
+    border: 1px solid var(--grey);
+  }
+  .body div {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    flex-direction: row;
+    border-bottom: 1px solid var(--grey);
+  }
+  .body div:last-child {
+    border-bottom: none;
+  }
+  .body div:before {
+    content: attr(data-name);
+    font-weight: 700;
+    display: flex;
+    width: 100px;
+  }
+  .container h1 {
+    margin-bottom: 3rem;
+  }
+  .coupon button {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .container {
+    padding: 2.5rem 1.2rem;
+  }
+  .card_container,
+  .checkout_container {
+    flex-direction: column;
+  }
+  .card {
+    min-width: 15em;
+  }
+  .coupon,
+  .checkout {
+    width: 100%;
+  }
+  .coupon button {
+    margin: 0px;
+  }
+
+  .checkout button, .checkout a {
+    max-width: 100%;
+    margin: 20px 0px 0px;
+  }
+}

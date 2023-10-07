@@ -1,0 +1,102 @@
+.cart_item_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.cart_item {
+  display: -moz-box;
+  display: flex;
+  width: 275px;
+  background-color: var(--white);
+  border: 1px solid var(--grey);
+  border-radius: 8px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.cart_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cart_disc {
+  padding: 5px;
+  height: 100%;
+}
+
+.cart_disc > * {
+  display: block;
+}
+
+.cart_disc b {
+  max-height: 45px;
+  overflow: hidden;
+}
+
+.confirmation {
+  background-color: var(--white);
+  box-shadow: 0 0 0 0.15rem #0000001a;
+  padding: 12px;
+  text-align: center;
+  width: 800px;
+  height: max-content;
+}
+
+.confirmation_heading {
+  padding: 38px 5px 10px;
+  border-bottom: 1px solid var(--grey);
+}
+
+.confirmation_heading svg {
+  margin: 10px;
+  color: var(--success);
+}
+
+.confirmation_heading h6 {
+  margin: 18px 5px 10px;
+  font-size: 20px;
+}
+
+.confirmation_heading p {
+  font-style: italic;
+}
+
+.confirmation_body {
+  text-align: left;
+  padding: 20px;
+}
+
+.confirmation_body h5 {
+  margin: 18px 0px;
+}
+
+.confirmation_body p {
+  margin: 0px;
+  color: var(--black);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.row div {
+  width: 50%;
+  padding-right: 15px;
+}
+
+.confirmation_pay {
+  margin: 25px 0px;
+}
+
+.confirmation_pay div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px dashed #ddd;
+  font-weight: 500;
+  margin-bottom: 14px;
+}

@@ -11,6 +11,7 @@ import {
   webpage,
   brand,
   order,
+  templates,
 } from "../utils/modelData.mjs";
 
 dotenv.config({ path: process.cwd() + "/.env.local" });
@@ -70,6 +71,9 @@ export const brandModel = mongoose.model("brand", brandSchema);
 //category data
 const orderSchema = new mongoose.Schema(order);
 export const orderModel = mongoose.model("order", orderSchema);
+// templates data
+// const templatesSchema = new mongoose.Schema(templates);
+// export const templatesModel = mongoose.model("templates", templatesSchema);
 
 const exp = {
   _dbConnect,
@@ -83,6 +87,7 @@ const exp = {
   webpageModel,
   brandModel,
   orderModel,
+  // templatesModel
 };
 
 export default exp;

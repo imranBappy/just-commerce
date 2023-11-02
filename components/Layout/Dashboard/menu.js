@@ -6,6 +6,7 @@ import {
   PeopleFill,
   Star,
   UiChecksGrid,
+  
 } from "@styled-icons/bootstrap";
 import {
   Dashboard,
@@ -13,6 +14,7 @@ import {
   LocalShipping,
   Settings,
   SettingsSuggest,
+  TempleBuddhist
 } from "@styled-icons/material";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -133,6 +135,22 @@ const DashboardMenu = (props) => {
         {
           name: t("Add New Attribute"),
           url: "/dashboard/attributes/create",
+          create: true,
+        },
+      ],
+    },
+     {
+       name: t("Templates"),
+      icon: <TempleBuddhist width={20} height={20} />,
+      target: "attribute",
+      subMenu: [
+        {
+          name: t("All Templates"),
+          url: "/dashboard/templates",
+        },
+        {
+          name: t("Add New Templates"),
+          url: "/dashboard/templates/create",
           create: true,
         },
       ],

@@ -17,6 +17,7 @@ import Question from "~/components/question";
 import Review from "~/components/Review";
 import Product from "~/components/Shop/Product/product";
 import classes from "~/components/Shop/Product/productDetails.module.css";
+import Template from "~/components/template/template";
 import { postData, setSettingsData, stockInfo } from "~/lib/clientFunctions";
 import productDetailsData from "~/lib/dataLoader/productDetails";
 import { addToCart, addVariableProductToCart } from "~/redux/cart.slice";
@@ -47,6 +48,7 @@ function ProductDetailsPage({ data, error }) {
   const deliveryPrice = data?.product?.deliveryPrice;
   const internationalCost = data?.product?.internationalCost;
   const [permission, setPermission] = useState("");
+  const [templates, setTemplates] = useState([]);
   useEffect(() => {
     // Fetch shipping data from the API
     fetch("/api/shipping")
@@ -56,6 +58,14 @@ function ProductDetailsPage({ data, error }) {
       })
       .catch((error) => console.error("Error fetching shipping data:", error));
   }, []);
+
+  useEffect(() => {
+    if (data?.product?.template) {
+      setTemplates(data.product.template);
+    }
+  }, [data])
+
+
 
   const settings = useSelector((state) => state.settings);
   const router = useRouter();
@@ -215,10 +225,10 @@ function ProductDetailsPage({ data, error }) {
               : { name: null, value: null },
             attribute: selectedAttribute.name
               ? {
-                  name: selectedAttribute.name,
-                  value: selectedAttribute.value,
-                  for: attributes[0]?.for,
-                }
+                name: selectedAttribute.name,
+                value: selectedAttribute.value,
+                for: attributes[0]?.for,
+              }
               : { name: null, value: null, for: null },
           };
           dispatch(addVariableProductToCart(cartItem));
@@ -651,23 +661,36 @@ function ProductDetailsPage({ data, error }) {
                     {data.product.name} {t("Specificationss")}
                   </p>
                 </div>
-                {data.product.description &&
-                data.product.description.length > 0 ? (
+
+
+                {
+                  (data.product.description &&  data.product.description.length > 0) || templates.length > 0 ? (
                   <div
                     className="bg-white p-2 hera2 text-left"
                     data-aos="fade-up"
                   >
                     <div
-                      className={`overflow-hidden pl-3 ${
-                        isOpen ? "h-auto" : "h-96"
-                      }`}
+                      className={`overflow-hidden pl-3 ${isOpen ? "h-auto" : "h-96"
+                        }`}
                     >
+
                       <div
                         className="p-2 bg-white hera2"
                         dangerouslySetInnerHTML={{
                           __html: data.product.description,
                         }}
                       />
+
+                      <hr />
+                      {/* <h1 className="p-2 mt-5"
+                        style={{
+                          color: "black",
+                          fontSize: 30
+                        }}
+                        >Specifications</h1> */}
+                        {
+                          templates.map((template, index) =>  <Template template={template} key={`key_${index}`} />) 
+                        }
                     </div>
                     <div
                       className="py-3 px-2 cursor-pointer font-weight-bold text-uppercase"
@@ -678,12 +701,16 @@ function ProductDetailsPage({ data, error }) {
                       </bottom>
                     </div>
                   </div>
-                ) : (
+                )
+                
+                : (
                   <EmptyContent
                     icon={<CardText width={40} height={40} />}
                     text="This product has no description"
                   />
-                )}
+                )
+                
+                }
               </>
 
               <>

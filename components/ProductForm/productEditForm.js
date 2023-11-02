@@ -11,6 +11,7 @@ import Spinner from "../Ui/Spinner";
 import classes from "./productForm.module.css";
 import CustomSelect from "../CustomSelect";
 import { useTranslation } from "react-i18next";
+import ProductTemplate from "./productTemplate";
 
 const ProductEditForm = (props) => {
   const url = `/api/product/edit?slug=${props.slug}`;
@@ -34,19 +35,15 @@ const ProductEditForm = (props) => {
   const [editorState, setEditorState] = useState("");
   const [editorStateShort, setEditorStateShort] = useState("");
   const [buttonState, setButtonState] = useState("");
-  
   const { t } = useTranslation();
-
   const [internationalPrice, setInternationalPrice] = useState('')
-
-
   const [shipping, setShipping] = useState([{ name: '', cost: '', price: '' }]);
   const [permission, setPermission] = useState('')
-
   // console.log('international price', internationalPrice)
   // console.log('Updated shipping', shipping)
   const [permission1, setPermission1] = useState([])
-  
+  const [templateList, setTemplateList] = useState([]);
+
 
   const d = permission1?.filter(i => i.slug === props.slug)[0]?.deliveryPrice
   useEffect(() => {
@@ -54,13 +51,24 @@ const ProductEditForm = (props) => {
     fetch('/api/product')
       .then((response) => response.json())
       .then((data) => {
-
         setPermission1(data?.product);
-
+        
       }
       )
       .catch((error) => console.error('Error fetching shipping data:', error));
   }, []);
+
+  useEffect(() => {
+    setShipping(d)
+  }, [d])
+  
+
+
+  useEffect(() => {
+    if (data?.product?.template) {
+          setTemplateList(data.product.template)
+        }
+  },[data])
 
   const handleInputChangeForShipping = (event, index) => {
     const updatedShipping = [...shipping];
@@ -82,8 +90,8 @@ const ProductEditForm = (props) => {
       )
       .catch((error) => console.error('Error fetching shipping data:', error));
   }, []);
-  
-  
+
+
   useEffect(() => {
     // Fetch shipping data from the API
     fetch('/api/shipping')
@@ -295,6 +303,7 @@ const ProductEditForm = (props) => {
     formData.append("short_description", getEditorStateData(editorStateShort));
     formData.append("deliveryPrice", JSON.stringify(shipping));
     formData.append("internationalCost", internationalPrice)
+    formData.append("template", JSON.stringify(templateList));
 
     await postData("/api/product/edit", formData)
       .then((status) =>
@@ -309,6 +318,8 @@ const ProductEditForm = (props) => {
     setButtonState("");
   };
 
+
+
   return (
     <form
       id="product_form"
@@ -318,6 +329,7 @@ const ProductEditForm = (props) => {
       {imageInput()}
       <input type="hidden" name="pid" defaultValue={data.product._id} />
       {productInformation()}
+      <ProductTemplate isEdit={true} templateListState={[templateList, setTemplateList]} />
       {productDescription()}
       {productType()}
       {productTypeInput()}
@@ -328,7 +340,7 @@ const ProductEditForm = (props) => {
           {t("Shipping Area")}
         </div>
         {d?.map((item, index) => {
-         
+
           return (
             <div key={index}>
               <div className="px-4 py-2">
@@ -346,7 +358,7 @@ const ProductEditForm = (props) => {
             </div>
           )
         })}
-       
+
 
         {
           permission === 'YES' ? (
@@ -360,7 +372,7 @@ const ProductEditForm = (props) => {
                 < input
                   type="number"
                   defaultValue={data?.product?.internationalCost}
-                 
+
                   onChange={(e) => setInternationalPrice(e.target.value)}
                   style={{ width: '40%' }}
                 />
@@ -517,9 +529,8 @@ const ProductEditForm = (props) => {
                       <hr />
                       <h6>
                         {t("Variant")}:{" "}
-                        {`${variant.color ? variant.color : ""} ${
-                          variant.color && variant.attr ? "+" : ""
-                        } ${variant.attr ? variant.attr : ""}`}
+                        {`${variant.color ? variant.color : ""} ${variant.color && variant.attr ? "+" : ""
+                          } ${variant.attr ? variant.attr : ""}`}
                       </h6>
                       <div className="row">
                         <div className="col-12 col-md-3">
@@ -776,14 +787,14 @@ const ProductEditForm = (props) => {
                     Math.round(
                       (100 -
                         (data.product.discount * 100) / data.product.price) *
-                        10
+                      10
                     ) / 10
                   }
                   onWheel={(e) => e.target.blur()}
                 />
               </div>
             </div>
-          
+
             <div className="col-12 col-sm-6">
               <div className="py-3">
                 <label className="form-label">{t("categories")}*</label>

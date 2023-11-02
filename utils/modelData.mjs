@@ -85,6 +85,29 @@ export const attribute = {
   values: Array,
 };
 
+export const templates = {
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "category",
+    unique: true,
+    required: true,
+  },
+  templates: [
+    {
+      specificationName: {
+        type: String,
+        required: true,
+      },
+      specificationList: [
+        {
+          type: String,
+          required: true,
+        }
+      ]
+    }
+  ]
+}
+
 export const category = {
   categoryId: String,
   name: String,
@@ -195,6 +218,19 @@ export const product = {
       answer: String,
     },
   ],
+  template: [
+    {
+      specificationName: {
+        type: String,
+      },
+      specificationList: [
+        {
+          name: String,
+          value: String,
+        }
+      ]
+    }
+  ]
 };
 
 export const shippingCharge = {

@@ -9,8 +9,9 @@ import HeadData from "~/components/Head";
 import ImageLoader from "~/components/Image";
 import { postData, stockInfo } from "~/lib/clientFunctions";
 import { updateComparelist } from "~/redux/cart.slice";
-import c from "../styles/compare.module.css";
+import styles from "../styles/compare.module.css";
 import { useTranslation } from "react-i18next";
+import CompareTemplate from "~/components/CompareTemplate/CompareTemplate";
 
 const GlobalModal = dynamic(() => import("~/components/Ui/Modal/modal"));
 const ProductDetails = dynamic(() =>
@@ -24,6 +25,28 @@ const Compare = () => {
   const router = useRouter();
   const { compare } = useSelector((state) => state.cart);
   const { settingsData } = useSelector((state) => state.settings);
+  const [keys, setKeys] = useState({
+  
+  });
+
+  useEffect(() => {
+    const newKeys = {...keys};
+    if (data.length > 0) {
+      data.forEach((item) => {
+        item.template.forEach((template) => { 
+           newKeys[template.specificationName] = template.specificationName;
+
+          template.specificationList.forEach((specification) => {
+            if (!newKeys[specification.name]) {
+              newKeys[specification.name] = specification.name;
+            }
+          });
+        });
+      });
+    }
+    setKeys(newKeys);
+  },[data])
+
   const dispatch = useDispatch();
   const { t } = useTranslation();
   async function getData() {
@@ -58,29 +81,34 @@ const Compare = () => {
     toast.success("Item has been removed from compare list");
   }
 
+  const allKeys = Object.keys(keys);  
+
   return (
     <>
       <HeadData title="Compare" />
-      <div className={c.layout_top}>
-        <h1 className={c.heading}>{t("compare")}</h1>
+      <div className={styles.layout_top}>
+        <h1 className={styles.heading}>{t("compare")}</h1>
         {compare && compare.length > 0 ? (
-          <div className={c.root}>
-            <div className={c.header}>
+          <div className={styles.root}>
+            <div className={styles.header}>
               <ul>
-                <li className={c.image}>{t("photo")}</li>
-                <li>{t("name")}</li>
-                <li>{t("price")}</li>
-                <li>{t("availability")}</li>
-                <li>{t("color")}</li>
-                <li className={c.desc}>{t("description")}</li>
+                <li className={styles.image}>{t("photo")}</li>
+                <li>{t('name')}</li>
+                <li>{t('phone')}</li>
+                <li>{t('availability')}</li>
+                <li>{t('color')}</li>
+
+                {
+                  allKeys.map((key, index) => (  <li>{t(key)}</li>))
+                }
                 <li>{t("action")}</li>
               </ul>
             </div>
-            <div className={c.table}>
-              <div className={c.content}>
+            <div className={styles.table}>
+              <div className={styles.content}>
                 {data.map((item, idx) => (
                   <ul key={idx}>
-                    <li className={c.image}>
+                    <li className={styles.image}>
                       <ImageLoader
                         src={item.image[0]?.url}
                         width={125}
@@ -88,8 +116,9 @@ const Compare = () => {
                       />
                     </li>
                     <li>{item.name}</li>
+                    
                     <li>
-                      <span className={c.price}>
+                      <span className={styles.price}>
                         {item.discount < item.price && (
                           <del>{item.price + settingsData.currency.symbol}</del>
                         )}
@@ -112,18 +141,16 @@ const Compare = () => {
                             key={i}
                             style={{ backgroundColor: x.value }}
                             title={x.label}
-                            className={c.color}
+                            className={styles.color}
                           ></span>
                         ))}
                     </li>
-                    <li className={c.desc}>
-                      <p
-                        className="hera"
-                        dangerouslySetInnerHTML={{
-                          __html: item.shortDescription
-                        }}
-                      />
-                    </li>
+                    
+                    {
+                      Object.keys(keys).map((key, index) => (    <CompareTemplate item={item} _key={key} key={key} />))
+                    }
+                        
+
                     <li>
                       {stockInfo(item) && (
                         <Link
@@ -131,13 +158,13 @@ const Compare = () => {
                           as={`/product/${item.slug}`}
                           scroll={false}
                           shallow={true}
-                          className={c.button}
+                          className={styles.button}
                         >
                           {t("add_to_cart")}
                         </Link>
                       )}
                       <button
-                        className={c.button}
+                        className={styles.button}
                         onClick={() => removeItem(item._id)}
                       >
                         <Trash3 width={20} height={20} />

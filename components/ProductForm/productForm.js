@@ -9,6 +9,7 @@ import LoadingButton from "../Ui/Button";
 import Spinner from "../Ui/Spinner";
 import CustomSelect from "../CustomSelect";
 import { useTranslation } from "react-i18next";
+import ProductTemplate from "./productTemplate";
 
 const ProductForm = () => {
   const url = `/api/product/create`;
@@ -31,6 +32,7 @@ const ProductForm = () => {
   const [editorState, setEditorState] = useState("");
   const [editorStateShort, setEditorStateShort] = useState("");
   const [buttonState, setButtonState] = useState("");
+  const [templateList, setTemplateList] = useState([]);
   const { t } = useTranslation();
 
   const [internationalPrice, setInternationalPrice] = useState("");
@@ -160,9 +162,9 @@ const ProductForm = () => {
   };
 
   const formHandler = async (e) => {
-    console.log(111, getEditorStateData(editorStateShort),11, editorStateShort);
+    console.log(111, getEditorStateData(editorStateShort), 11, editorStateShort);
 
-  
+
 
     e.preventDefault();
     if (displayImage.length === 0 || galleryImage.length === 0) {
@@ -194,6 +196,9 @@ const ProductForm = () => {
     formData.append("short_description", getEditorStateData(editorStateShort));
     formData.append("deliveryPrice", JSON.stringify(shipping));
     formData.append("internationalCost", internationalPrice);
+    formData.append("template", JSON.stringify(templateList));
+
+
 
     await postData("/api/product/create", formData)
       .then((status) => {
@@ -208,7 +213,8 @@ const ProductForm = () => {
             setSelectedAttr([]),
             setInternationalPrice(""),
             setResetImageInput("reset"),
-            setEditorState(""))
+            setEditorState("")
+          )
           : toast.error("Something Went  Wrong here");
       })
       .catch((err) => {
@@ -216,7 +222,7 @@ const ProductForm = () => {
         console.log("error", err);
         toast.error("Something Went Wrong");
       });
-    setButtonState("");
+    // setButtonState("");
   };
 
   if (error) return <div>failed to load</div>;
@@ -266,8 +272,8 @@ const ProductForm = () => {
       >
         {imageInput()}
         {productInformation()}
-
-        <div className="card mb-5 border-0 shadow">
+        <ProductTemplate templateListState={[templateList, setTemplateList]} />
+        {/* <div className="card mb-5 border-0 shadow">
           <div className="card-header bg-white py-3 fw-bold">
             {t("Template")}
           </div>
@@ -299,7 +305,7 @@ const ProductForm = () => {
               />
             </div>
           </div>
-        </div>
+        </div> */}
 
         {productDescription()}
 
@@ -397,6 +403,7 @@ const ProductForm = () => {
       </div>
     );
   }
+
 
   function productTypeInput() {
     return (
@@ -496,9 +503,8 @@ const ProductForm = () => {
                       <hr />
                       <h6>
                         {t("Variant")}:{" "}
-                        {`${variant.color ? variant.color : ""} ${
-                          variant.color && variant.attr ? "+" : ""
-                        } ${variant.attr ? variant.attr : ""}`}
+                        {`${variant.color ? variant.color : ""} ${variant.color && variant.attr ? "+" : ""
+                          } ${variant.attr ? variant.attr : ""}`}
                       </h6>
                       <div className="row">
                         <div className="col-12 col-md-3">

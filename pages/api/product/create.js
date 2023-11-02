@@ -152,8 +152,16 @@ export default async function apiHandler(req, res) {
             internationalCost,
           };
         }
-        await ProductModel.create(productData);
+     
+
+        await ProductModel.create({
+          ...productData,
+          template: JSON.parse(data.field?.template || '[]')
+        });
+
+        // res.status(200).json({ success: true, productData });
         res.status(200).json({ success: true, productData });
+
       } catch (err) {
         console.log(err);
         res.status(400).json({ success: false });

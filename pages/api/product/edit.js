@@ -132,8 +132,10 @@ export default async function apiHandler(req, res) {
             deliveryPrice: delivery
           };
         }
-
-        await ProductModel.findByIdAndUpdate(pid, productData);
+        await ProductModel.findByIdAndUpdate(pid, {
+          ...productData,
+             template: JSON.parse(data.field?.template || '[]')
+        });
 
         res.status(200).json({ success: true });
       } catch (err) {

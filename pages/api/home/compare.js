@@ -15,6 +15,7 @@ const productItemField = {
   variants: 1,
   colors: 1,
   quantity: 1,
+  template:1
 };
 
 export default async function apiHandler(req, res) {
